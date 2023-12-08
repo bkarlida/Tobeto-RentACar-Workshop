@@ -1,5 +1,6 @@
 package com.tobeto.spring.b.services.abstracts;
 
+import com.tobeto.spring.b.entities.Brand;
 import com.tobeto.spring.b.services.dtos.requests.brand.AddBrandRequest;
 import com.tobeto.spring.b.services.dtos.requests.brand.UpdateBrandRequest;
 import com.tobeto.spring.b.services.dtos.responses.brand.GetBrandListResponse;
@@ -11,8 +12,10 @@ public interface BrandService {
     void add(AddBrandRequest addBrandRequest);
     GetBrandResponse getById(int id);
     List<GetBrandListResponse> getAll();
-
     void update(UpdateBrandRequest updateBrandRequest,int id);
     void delete(int id);
+
+    List<Brand> getByName(String name);
+    List<Brand> getByName(String name, int id);
 
 }

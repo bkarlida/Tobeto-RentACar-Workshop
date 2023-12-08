@@ -7,6 +7,7 @@ import com.tobeto.spring.b.services.dtos.requests.brand.AddBrandRequest;
 import com.tobeto.spring.b.services.dtos.requests.brand.UpdateBrandRequest;
 import com.tobeto.spring.b.services.dtos.responses.brand.GetBrandListResponse;
 import com.tobeto.spring.b.services.dtos.responses.brand.GetBrandResponse;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -63,4 +64,11 @@ public class BrandManager implements BrandService {
         brandRepository.deleteById(id);
     }
 
+    @Override
+    public List<Brand> getByName(String name) {
+        return brandRepository.findByName(name);
+    }
+    public List<Brand> getByName(String name, int id) {
+        return brandRepository.findByNameOrIdEquals(name, id);
+    }
 }

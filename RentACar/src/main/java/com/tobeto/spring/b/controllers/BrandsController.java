@@ -17,11 +17,12 @@ import java.util.Optional;
 @RestController
 @RequestMapping("api/brands")
 @AllArgsConstructor
+
 public class BrandsController {
 
     private final BrandService brandService;
+
     @GetMapping
-    //List<BrandForListiningDto> => id,name
     public List<GetBrandListResponse> getAll(@RequestBody GetBrandListResponse getBrandListResponse) {
         return this.brandService.getAll();
     }
@@ -41,5 +42,15 @@ public class BrandsController {
     public void delete(@PathVariable int id){
         this.brandService.delete(id);
     }
-
+    // Derived  query method exercies
+    @GetMapping("search")
+    public List<Brand> getByName(@RequestParam String name)
+    {
+        return this.brandService.getByName(name);
+    }
+    @GetMapping("search2")
+    public List<Brand> getByName(@RequestParam String name, @RequestParam int id)
+    {
+        return this.brandService.getByName(name, id);
+    }
 }
