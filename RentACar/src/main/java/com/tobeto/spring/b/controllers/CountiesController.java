@@ -40,4 +40,8 @@ public class CountiesController {
     public void delete(@PathVariable int id){
         countyService.delete(id);
     }
+//    @GetMapping("county")
+//    public List<GetCountyListResponse> getByIdQuery(){
+//        return countyService.getByIdQuery();
+//    }
 }

@@ -67,4 +67,12 @@ public class CarManager implements CarService {
     public void delete(int id) {
         carRepository.deleteById(id);
     }
+
+    @Override
+    public List<Car> getModelName(String name) {
+        return carRepository.getModelName(name);
+    }
+    public List<GetCarListResponse> getModelName2(String name) {
+        return carRepository.getModelName2(name);
+    }
 }

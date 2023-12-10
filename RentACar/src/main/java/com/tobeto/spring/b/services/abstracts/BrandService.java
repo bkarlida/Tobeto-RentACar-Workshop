@@ -15,7 +15,9 @@ public interface BrandService {
     void update(UpdateBrandRequest updateBrandRequest,int id);
     void delete(int id);
 
-    List<Brand> getByName(String name);
-    List<Brand> getByName(String name, int id);
+    List<GetBrandListResponse> getByName(String name);
+    List<GetBrandListResponse> getByName(String name, int id);
+    List<Brand> search();
+    //List<Brand> getByFirstnameLike(String name);
 
 }

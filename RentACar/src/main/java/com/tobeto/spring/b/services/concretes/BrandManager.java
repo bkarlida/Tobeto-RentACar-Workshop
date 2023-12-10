@@ -65,10 +65,32 @@ public class BrandManager implements BrandService {
     }
 
     @Override
-    public List<Brand> getByName(String name) {
-        return brandRepository.findByName(name);
+    public List<GetBrandListResponse> getByName(String name) {
+        List<Brand> brands =  brandRepository.findByName(name);
+        List<GetBrandListResponse> response = new ArrayList<>();
+        for(Brand brand: brands)
+        {
+            response.add(new GetBrandListResponse(brand.getName()));
+        }
+        return response;
     }
-    public List<Brand> getByName(String name, int id) {
-        return brandRepository.findByNameOrIdEquals(name, id);
+    public List<GetBrandListResponse> getByName(String name, int id) {
+        List<Brand> brands =  brandRepository.findByNameOrIdEquals(name, id);
+        List<GetBrandListResponse> response = new ArrayList<>();
+        for (Brand brand: brands) {
+            response.add(new GetBrandListResponse(brand.getName()));
+        }
+        return response;
     }
+
+    @Override
+    public List<Brand> search() {
+        return brandRepository.search();
+    }
+  //  public List<Brand> getByFirstnameLike(String name){
+    //    return brandRepository.findByFirstNameLike(name);
+   // }
+
 }
+
+

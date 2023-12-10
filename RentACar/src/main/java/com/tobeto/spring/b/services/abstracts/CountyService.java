@@ -13,4 +13,6 @@ public interface CountyService {
     void add(AddCountyRequest addCountyRequest);
     void update(UpdateCountyRequest updateCountyRequest,int id);
     void delete(int id);
+    //List<GetCountyListResponse> getByIdQuery();
+
 }

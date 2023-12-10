@@ -43,4 +43,13 @@ public class CarsController {
     public void delete(@PathVariable int id){
         carService.delete(id);
     }
+
+    @GetMapping("getmodelname")
+    public List<Car> getModelName(@RequestParam String name) {
+        return this.carService.getModelName(name);
+    }
+    @GetMapping("getmodelname2")
+    public List<GetCarListResponse> getModelName2(@RequestParam String name) {
+        return this.carService.getModelName2(name);
+    }
 }

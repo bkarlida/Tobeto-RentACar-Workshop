@@ -1,15 +1,18 @@
 package com.tobeto.spring.b.services.concretes;
 
+import com.tobeto.spring.b.controllers.OrdersController;
 import com.tobeto.spring.b.entities.Order;
 import com.tobeto.spring.b.repositories.OrderRepository;
 import com.tobeto.spring.b.services.abstracts.OrderService;
 import com.tobeto.spring.b.services.dtos.requests.order.AddOrderRequest;
 import com.tobeto.spring.b.services.dtos.requests.order.UpdateOrderRequest;
+import com.tobeto.spring.b.services.dtos.responses.car.GetCarListResponse;
 import com.tobeto.spring.b.services.dtos.responses.order.GetOrderListResponse;
 import com.tobeto.spring.b.services.dtos.responses.order.GetOrderResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -63,5 +66,11 @@ public class OrderManager implements OrderService {
     @Override
     public void delete(int id) {
         orderRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Order> getByStartDateBetween(LocalDate startDate, LocalDate startDate2) {
+        //LocalDate startDate2 = LocalDate.ofEpochDay(1998-07-04);
+        return orderRepository.findByStartDateBetween(startDate, startDate2);
     }
 }

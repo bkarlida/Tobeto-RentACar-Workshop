@@ -15,5 +15,7 @@ public interface CarService {
     void add(AddCarRequest addCarRequest);
     void update(UpdateCarRequest carRequest,int id);
     void delete(int id);
+    List<Car> getModelName(String name);
+    List<GetCarListResponse> getModelName2(String name);
 
 }

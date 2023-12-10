@@ -7,6 +7,7 @@ import com.tobeto.spring.b.services.dtos.requests.address.UpdateAddressRequest;
 import com.tobeto.spring.b.services.dtos.requests.customer.AddCustomerRequest;
 import com.tobeto.spring.b.services.dtos.requests.customer.UpdateCustomerRequest;
 import com.tobeto.spring.b.services.dtos.responses.customer.GetCustomerResponse;
+import com.tobeto.spring.b.services.dtos.responses.customer.GetEmailResponse;
 import com.tobeto.spring.b.services.dtos.responses.customer.GetListCustomerResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -65,5 +66,30 @@ public class CustomerManager implements CustomerService {
     @Override
     public void delete(int id) {
         customerRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Customer> GetByNameEndingWith(String name) {
+        return customerRepository.findByNameEndingWith(name);
+    }
+
+    @Override
+    public List<Customer> GetByNameStartingWith(String name) {
+        return customerRepository.findByNameStartingWith(name);
+    }
+
+    @Override
+    public List<Customer> getByCustomerGreaterThanAge(int age) {
+        return customerRepository.getByCustomerGreaterThanAge(age);
+    }
+
+    @Override
+    public List<Customer> getByCustomerStartName(String name) {
+        return customerRepository.getByCustomerStartName(name);
+    }
+
+    @Override
+    public List<Customer> GetByEmail(String email) {
+        return customerRepository.findByEmail(email);
     }
 }

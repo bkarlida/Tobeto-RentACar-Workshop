@@ -23,7 +23,7 @@ public class BrandsController {
     private final BrandService brandService;
 
     @GetMapping
-    public List<GetBrandListResponse> getAll(@RequestBody GetBrandListResponse getBrandListResponse) {
+    public List<GetBrandListResponse> getAll() {
         return this.brandService.getAll();
     }
     @GetMapping("{id}")
@@ -44,13 +44,22 @@ public class BrandsController {
     }
     // Derived  query method exercies
     @GetMapping("search")
-    public List<Brand> getByName(@RequestParam String name)
+    public List<GetBrandListResponse> getByName(@RequestParam String name)
     {
         return this.brandService.getByName(name);
     }
     @GetMapping("search2")
-    public List<Brand> getByName(@RequestParam String name, @RequestParam int id)
+    public List<GetBrandListResponse> getByName(@RequestParam String name, @RequestParam int id)
     {
         return this.brandService.getByName(name, id);
     }
+    @GetMapping("selectBrand")
+    public List<Brand> search(){
+        return  this.brandService.search();
+    }
+   // @GetMapping("selectLike")
+    //public List<Brand> getByFirstnameLike(@RequestParam String name)
+    //{
+       // return  this.brandService.getByFirstnameLike(name);
+    //}
 }

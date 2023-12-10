@@ -8,6 +8,7 @@ import com.tobeto.spring.b.services.dtos.requests.county.UpdateCountyRequest;
 import com.tobeto.spring.b.services.dtos.responses.county.GetCountyListResponse;
 import com.tobeto.spring.b.services.dtos.responses.county.GetCountyResponse;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -61,4 +62,9 @@ public class CountyManager implements CountyService {
     public void delete(int id) {
         countyRepository.deleteById(id);
     }
+
+//    @Override
+//    public List<GetCountyListResponse> getByIdQuery() {
+//        return countyRepository.getByIdQuery();
+//    }
 }

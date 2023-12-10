@@ -41,4 +41,30 @@ public class CustomersController {
     public void delete(@PathVariable int id){
         customerService.delete(id);
     }
+
+    @GetMapping("EndnameDerived")
+    public List<Customer> GetByNameEndingWith(@RequestParam String name)
+    {
+        return this.customerService.GetByNameEndingWith(name);
+    }
+    @GetMapping("firstnameDerived")
+    public List<Customer> GetByNameStartingWith(@RequestParam String name)
+    {
+        return this.customerService.GetByNameStartingWith(name);
+    }
+    @GetMapping("Email")
+    public List<Customer> getByEmail(@RequestParam String  name)
+    {
+        return this.customerService.GetByEmail(name);
+    }
+    @GetMapping("age")
+    public List<Customer> getByCustomerGreaterThanAge(@RequestParam int age)
+    {
+        return this.customerService.getByCustomerGreaterThanAge(age);
+    }
+    @GetMapping("startname")
+    public List<Customer> getByCustomerStartName(@RequestParam String name)
+    {
+        return this.customerService.getByCustomerStartName(name);
+    }
 }
