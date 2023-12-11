@@ -45,6 +45,10 @@ public class BillManager implements BillService {
 
     @Override
     public void add(AddBillRequest addBillRequest) {
+        //toplam fiyat negatif olamaz
+        if (addBillRequest.getTotalPrice() < 0)
+            throw new RuntimeException("total price cannot be negative");
+
         Bill bill = new Bill();
         bill.setTotalPrice(addBillRequest.getTotalPrice());
         billRepository.save(bill);

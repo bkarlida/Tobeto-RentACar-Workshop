@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class AddBrandRequest {
 
-    //@NotBlank(message = "boş bırakılamaz")
-   // @Size(min = 3, max = 30, message = "3 ile 30 arasında karaktere sahip olmalıdır")
+    @NotBlank(message = "boş bırakılamaz")
+    @Size(min = 3, max = 30, message = "3 ile 30 arasında karaktere sahip olmalıdır")
     private String name;
 }

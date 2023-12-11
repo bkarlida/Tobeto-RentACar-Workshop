@@ -10,6 +10,7 @@ import com.tobeto.spring.b.services.dtos.responses.car.GetCarResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -45,6 +46,13 @@ public class CarManager implements CarService {
 
     @Override
     public void add(AddCarRequest addCarRequest) {
+
+        //girilen yıl şimdiki zamandan fazla olamaz
+        LocalDate currentDate = LocalDate.now();
+
+        if (addCarRequest.getModelYear() > currentDate.getYear())
+            throw new RuntimeException("The entered date cannot be greater than the current year.");
+
         Car car = new Car();
         car.setModelName(addCarRequest.getModelName());
         car.setModelYear(addCarRequest.getModelYear());

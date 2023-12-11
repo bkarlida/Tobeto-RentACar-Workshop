@@ -43,6 +43,11 @@ public class AddressManager implements AddressService {
 
     @Override
     public void add(AddAddressRequest addAddressRequest) {
+        // bussiness rule
+
+        if(!addAddressRequest.getPostalCode().matches("\\d{5}"))
+            throw new IllegalArgumentException("Invalid PostalCode");
+
         Address address = new Address();
         address.setPostalCode(addAddressRequest.getPostalCode());
         address.setAddressDetail(addAddressRequest.getAddressDetail());

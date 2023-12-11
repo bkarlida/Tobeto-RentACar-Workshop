@@ -9,5 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AddOrderRequest {
     private double totalPrice;
+
     private String paymentType;
 }

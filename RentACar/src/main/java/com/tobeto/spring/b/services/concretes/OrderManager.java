@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,6 +47,9 @@ public class OrderManager implements OrderService {
 
     @Override
     public void add(AddOrderRequest addOrderRequest) {
+       // List<String> PaymentTypes = Arrays.asList("CreditCard", "DebitCard", "PayPal");
+
+
         Order order = new Order();
         order.setTotalPrice(addOrderRequest.getTotalPrice());
         order.setPaymentType(addOrderRequest.getPaymentType());

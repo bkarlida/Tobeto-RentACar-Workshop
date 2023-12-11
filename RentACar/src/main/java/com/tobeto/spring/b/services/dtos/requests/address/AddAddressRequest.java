@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AddAddressRequest {
+
     private String postalCode;
     private String addressDetail;
 }

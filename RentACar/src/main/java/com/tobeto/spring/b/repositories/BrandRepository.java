@@ -19,5 +19,5 @@ public interface BrandRepository extends JpaRepository<Brand, Integer> {
     List<Brand> search();
 
 
-
+    boolean existsByName(String name);
 }
